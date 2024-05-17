@@ -1,0 +1,14 @@
+@media screen and (max-width: 786px) {
+  .header .container .navi {
+    display: none;
+  }
+
+  .header .container .info {
+    display: none;
+  }
+
+  .header .logo {
+    position: static;
+    transform: none;
+  }
+}
