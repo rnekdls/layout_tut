@@ -5,6 +5,12 @@
   overflow: hidden;
 }
 
+.section {
+  width: var(--ls-full);
+  height: auto;
+  padding: 7.5rem 0;
+}
+
 /* 1280px 이상 요소들이 넘어가지 않도록 옵셋을 잡아준다. */
 .container {
   width: var(--ls-full);
@@ -21,7 +27,12 @@
   position: fixed;
   padding: 1.75rem 0;
   z-index: 999;
-  border-bottom: 1px solid #ddd;
+  transition: all 0.4s;
+}
+
+.header.active {
+  background: #fff;
+  border-bottom: #ddd;
 }
 
 .header .container {
@@ -105,6 +116,14 @@
 }
 
 /* Mobile Icon Style */
+.header .container .mobile-icon-wrapper {
+  display: none;
+}
+
+.header .new-mobile-menu {
+  display: none;
+}
+
 .header .mobile-icon {
   width: 1.8rem;
   cursor: pointer;
@@ -131,6 +150,16 @@
 }
 .header .mobile-icon.active span.bar-line:nth-child(3) {
   animation: bottom 0.5s ease forwards;
+}
+
+.header .mobile-icon.not-active span.bar-line:nth-child(1) {
+  animation: top-back 0.5s ease forwards;
+}
+.header .mobile-icon.not-active span.bar-line:nth-child(2) {
+  animation: middle-back 0.1s ease forwards;
+}
+.header .mobile-icon.not-active span.bar-line:nth-child(3) {
+  animation: bottom-back 0.5s ease forwards;
 }
 
 @keyframes top {
@@ -170,4 +199,248 @@
     transform: rotate(-40deg);
     bottom: 4px;
   }
+}
+
+@keyframes top-back {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+    top: 7px;
+  }
+
+  100% {
+    transform: rotate(0deg);
+    top: 0px;
+  }
+}
+@keyframes middle-back {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes bottom-back {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+    bottom: 7px;
+  }
+
+  100% {
+    transform: rotate(0deg);
+    bottom: 0px;
+  }
+}
+
+/* Landing Section Style */
+#main-section {
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+#main-section .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  left: 0;
+  top: 0;
+}
+
+#main-section img {
+  width: 100%;
+  height: 100%;
+  min-width: 900px;
+  object-fit: cover;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+
+#main-section .landing-text-box {
+  z-index: 10;
+  position: relative;
+}
+
+#main-section .landing-text-box h1 {
+  font-size: var(--fs-title);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+#main-section .landing-text-box p {
+  padding: 1.25rem 0;
+  width: 33.33%;
+}
+
+/* Common Buttons Style */
+.cmn-btn {
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.cmn-btn:hover {
+  background: #333;
+}
+
+/* Meet Section Style */
+.meet-section .meet-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  column-gap: 2.5rem;
+}
+
+.meet-section .meet-text-box {
+  width: 50%;
+}
+
+.meet-section .meet-text-box h4 {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.meet-section .meet-text-box p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  width: 80%;
+  padding: 2.5rem 0 1.25rem;
+  position: relative;
+}
+
+.meet-section .meet-text-box p:after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #000;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.meet-section .meet-text-box span {
+  font-size: 1.125rem;
+  padding-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.meet-section .meet-text-box span:before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: #000;
+  display: block;
+}
+
+.meet-section .meet-image-box {
+  width: 50%;
+  display: flex;
+  column-gap: 1.25rem;
+  align-items: center;
+}
+
+.meet-section .meet-image-box img {
+  width: 100%;
+  border-radius: 0.25rem;
+}
+
+.meet-section .meet-left-image,
+.meet-section .meet-right-image {
+  width: 50%;
+}
+
+.meet-section .meet-left-image {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.25rem;
+  align-items: flex-end;
+}
+
+.meet-section .meet-left-image img:nth-child(2) {
+  width: 80%;
+}
+
+/* Footer Style */
+footer {
+  padding: 3rem 0;
+  width: 100%;
+  height: auto;
+}
+
+footer .footer-upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .footer-logo {
+  width: 100px;
+}
+
+footer .footer-logo img {
+  width: 100%;
+}
+
+footer .footer-info {
+  display: flex;
+}
+
+footer .footer-info ul {
+  display: flex;
+}
+
+footer .footer-nav a {
+  font-size: 0.875rem;
+  padding: 1.25rem;
+}
+
+footer .footer-sns li {
+  padding-left: 1rem;
+}
+
+footer .footer-sns li a {
+  width: 20px;
+  display: inline-block;
+}
+
+footer .footer-sns li a img {
+  width: 100%;
+}
+
+footer .footer-line {
+  width: 100%;
+  height: 1px;
+  background: #000;
+  margin: 1.25rem 0;
+}
+
+footer .footer-lower {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  align-items: center;
+}
+
+footer .footer-lower a {
+  text-decoration: underline;
 }
